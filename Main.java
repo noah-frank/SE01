@@ -2,11 +2,11 @@ public class Main{
 
     public static void main(String args []){
 
-        int [][] world = {{0,0,0,0},{0,1,0,0},{0,1,1,1},{0,0,0,0}}; 
+        int [][] world = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,0,0,0}}; 
 
-        int heatmap [][] = generateHeatmap(world);
+        int nextIteration [][] = generateNextIteration(world);
 
-        printTwoDimArray(heatmap);
+        printTwoDimArray(nextIteration);
 
     }
 
@@ -21,7 +21,6 @@ public class Main{
         }
 
     }
-
 
 
     public static int [][] generateHeatmap(int [][] world){
@@ -85,6 +84,30 @@ public class Main{
         return neighbors;
 
     }
+
+
+    public static int [][] generateNextIteration(int [][] world){
+
+        int [][] nextIteration = new int [world.length][world[0].length];
+
+
+        for(int i = 0; i < world.length; i++){
+            for(int j = 0; j < world[0].length; j++){
+                if(world[i][j] == 0 && calculateNeighbors(world, i, j) == 3){    // if dead cell has 3 neighbors
+                    nextIteration[i][j] = 1;                                     // new cell is born
+                }
+                if(world[i][j] == 1 && (calculateNeighbors(world, i, j) == 2 || calculateNeighbors(world, i, j) == 3)){ // if cell has 2 or 3 neighbors
+                    nextIteration[i][j] = 1;                                                                            // cell survive
+                }
+            }
+        }
+
+
+        return nextIteration;
+
+    }
+
+
 
 
 }
