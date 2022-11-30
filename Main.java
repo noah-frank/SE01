@@ -13,8 +13,8 @@ public class Main{
 
     public static void printTwoDimArray(int [][] array){
 
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array[0].length; j++){
                 System.out.print(array[i][j] + " ");
             }
             System.out.println("");
@@ -24,13 +24,12 @@ public class Main{
 
 
 
-
     public static int [][] generateHeatmap(int [][] world){
 
         int [][] heatmap = {{0,0,0},{0,0,0},{0,0,0}};
 
-        for(int i = 0; i < 3; i++){               // row loop
-            for(int j = 0; j < 3; j++){           // column loop
+        for(int i = 0; i < world.length; i++){               // row loop
+            for(int j = 0; j < world[0].length; j++){           // column loop
                 heatmap[i][j] = calculateNeighbors(world, i, j);
             }
         }
@@ -83,18 +82,9 @@ public class Main{
         }
 
 
-
-
         return neighbors;
 
     }
-
-
-
-
-
-
-
 
 
 }
