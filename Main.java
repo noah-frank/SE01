@@ -7,4 +7,22 @@ public class Main{
 
     }
 
+
+    public int [][] generateHeatmap(int [][] world){
+
+
+
+        return null;
+
+    }
+
+
+
+
+
+    
+
+
+
+
 }
