@@ -4,11 +4,14 @@ public class Main{
 
         int [][] world = {{0,1,0},{0,10},{0,1,0}}; 
 
+        int test = calculateNeighbors(world, 0, 0);
+
+        System.out.println(test);
 
     }
 
 
-    public int [][] generateHeatmap(int [][] world){
+    public static int [][] generateHeatmap(int [][] world){
 
         int [][] heatmap = {{0,0,0},{0,0,0},{0,0,0}};
 
@@ -24,7 +27,7 @@ public class Main{
     }
 
 
-    public int calculateNeighbors(int [][] world, int row, int column){
+    public static int calculateNeighbors(int [][] world, int row, int column){
 
 
         int startRow = row - 1;
@@ -51,7 +54,7 @@ public class Main{
 
         int neighbors = 0;
 
-        for(; startRow <= endRow; startRow++;){
+        for(; startRow <= endRow; startRow++){
             for(; startColumn <= startColumn++;){
                 if(world[row][column] == 1){
                     neighbors++;
@@ -63,7 +66,7 @@ public class Main{
 
 
 
-        return null;
+        return neighbors;
 
     }
 
