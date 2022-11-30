@@ -17,10 +17,19 @@ public class Main{
     }
 
 
+    public int calculateNeighbors(int [][] world, int row, int column){
 
 
 
-    
+
+        return null;
+
+    }
+
+
+
+
+
 
 
 
