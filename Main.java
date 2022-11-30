@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class Main{
@@ -21,12 +22,17 @@ public class Main{
 
     public static void runGame(int [][] world) throws InterruptedException{
 
+        int previousIteration [][] = world;
         int nextIteration [][] = new int [world.length][world[0].length];
+        
 
         for(int i = 0; i < 10; i++){
             System.out.println("\033[2J");
             nextIteration = generateNextIteration(world);
             printTwoDimArray(nextIteration);
+            if(Arrays.equals(previousIteration, nextIteration)){
+                break;                                                           // stop iterating if world did not change
+            }
             TimeUnit.SECONDS.sleep(1);
         }
     }
