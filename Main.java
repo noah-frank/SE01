@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -26,17 +27,36 @@ public class Main{
 
         int previousIteration [][] = world;
         int nextIteration [][] = new int [world.length][world[0].length];
+
+        ArrayList<int [][]> previousStates = new ArrayList<int [][]>();
+        
+        previousStates.add(world);
         
 
         for(int i = 1; i < 10; i++){
             System.out.println("\033[2J");
             nextIteration = generateNextIteration(previousIteration);
+            previousStates.add(nextIteration.clone());
             printTwoDimArray(nextIteration);
             System.out.println("Run: " + i);
+            boolean finalState = false;
             if(Arrays.equals(previousIteration, nextIteration)){
-                System.out.println("Final state");
-                break;                                                           // stop iterating if world did not change
+                System.out.println("Final state"); 
+                finalState = true;                                                        // stop iterating if world did not change
             }
+            boolean formerState = false;
+            for(Object o : previousStates){
+                if(Arrays.equals((int [][])o, nextIteration)){
+                    System.out.println("Former state!");
+                    formerState = true;
+                    break;
+                }
+            }
+
+            if(formerState || finalState){
+                break;
+            }
+
             previousIteration = nextIteration.clone();
             TimeUnit.SECONDS.sleep(1);
         }
