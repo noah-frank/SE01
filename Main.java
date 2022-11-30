@@ -11,10 +11,12 @@ public class Main{
         System.out.println("\033[2J");
 
         printTwoDimArray(world);
+        System.out.println("Run: 0");
 
         TimeUnit.SECONDS.sleep(1);
 
         runGame(world);
+
 
 
     }
@@ -26,13 +28,16 @@ public class Main{
         int nextIteration [][] = new int [world.length][world[0].length];
         
 
-        for(int i = 0; i < 10; i++){
+        for(int i = 1; i < 10; i++){
             System.out.println("\033[2J");
-            nextIteration = generateNextIteration(world);
+            nextIteration = generateNextIteration(previousIteration);
             printTwoDimArray(nextIteration);
+            System.out.println("Run: " + i);
             if(Arrays.equals(previousIteration, nextIteration)){
+                System.out.println("Final state");
                 break;                                                           // stop iterating if world did not change
             }
+            previousIteration = nextIteration.clone();
             TimeUnit.SECONDS.sleep(1);
         }
     }
