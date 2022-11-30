@@ -1,14 +1,37 @@
+import java.util.concurrent.TimeUnit;
+
 public class Main{
 
-    public static void main(String args []){
+    public static void main(String args []) throws InterruptedException{
 
         int [][] world = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,0,0,0}}; 
+        
 
-        int nextIteration [][] = generateNextIteration(world);
+        System.out.println("\033[2J");
 
-        printTwoDimArray(nextIteration);
+        printTwoDimArray(world);
+
+        TimeUnit.SECONDS.sleep(1);
+
+        runGame(world);
+
 
     }
+
+
+    public static void runGame(int [][] world) throws InterruptedException{
+
+        int nextIteration [][] = new int [world.length][world[0].length];
+
+        for(int i = 0; i < 10; i++){
+            System.out.println("\033[2J");
+            nextIteration = generateNextIteration(world);
+            printTwoDimArray(nextIteration);
+            TimeUnit.SECONDS.sleep(1);
+        }
+    }
+
+
 
 
     public static void printTwoDimArray(int [][] array){
