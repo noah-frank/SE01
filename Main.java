@@ -6,9 +6,9 @@ public class Main{
 
     public static void main(String args []) throws InterruptedException{
 
-        int [][] world = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,0,0,0}}; 
+        int [][] world2 = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,0,0,0}}; 
 
-        int [][] world2 = {{1,0,0,0},{1,0,1,0},{1,1,1,0},{0,0,1,0}};
+        int [][] world = {{1,0,0,0},{1,0,1,0},{1,1,1,0},{0,0,1,0}};
         
 
         System.out.println("\033[2J");
@@ -18,14 +18,31 @@ public class Main{
 
         TimeUnit.SECONDS.sleep(1);
 
-        //runGame(world);
 
         world = extendWorld(world);
+        world = extendWorld(world);
+        world = extendWorld(world);
+        world = extendWorld(world);
 
-        printTwoDimArray(world);
+        runGame(world);
 
     }
 
+
+    public static int [][] extendIfNeeded(int [][] world){
+
+
+        if(Arrays.asList(world[0]).contains(1)){    // add row before first row
+
+        }
+
+        if(Arrays.asList(world[world.length-1]).contains(1)){    // add row behind last row
+
+        }
+
+        return world;
+
+    }
 
 
     public static int [][] extendWorld(int [][] world){ // extends a world one row and colum in each direction (up,down,left,right)
@@ -38,16 +55,9 @@ public class Main{
             }
         }
 
-
-
-
         return extendedWorld;
 
     }
-
-
-
-
 
 
 
@@ -89,7 +99,6 @@ public class Main{
             }   
 
 
-
             if(formerState || finalState){
                 break;
             }
@@ -101,8 +110,6 @@ public class Main{
             TimeUnit.SECONDS.sleep(1);
         }
     }
-
-
 
 
     public static void printTwoDimArray(int [][] array){
