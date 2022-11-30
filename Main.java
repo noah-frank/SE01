@@ -7,6 +7,8 @@ public class Main{
     public static void main(String args []) throws InterruptedException{
 
         int [][] world = {{0,1,0,0},{0,1,0,0},{0,1,0,0},{0,0,0,0}}; 
+
+        int [][] world2 = {{1,0,0,0},{1,0,1,0},{1,1,1,0},{0,0,1,0}};
         
 
         System.out.println("\033[2J");
@@ -16,11 +18,37 @@ public class Main{
 
         TimeUnit.SECONDS.sleep(1);
 
-        runGame(world);
+        //runGame(world);
 
+        world = extendWorld(world);
 
+        printTwoDimArray(world);
 
     }
+
+
+
+    public static int [][] extendWorld(int [][] world){
+
+        int [][] extendedWorld = new int [world.length+2][world[0].length+2];
+
+        for(int i = 1; i < world.length; i++){
+            for(int j = 1; j < world[0].length; j++){
+                extendedWorld[i][j] = world[i-1][j-1];
+            }
+        }
+
+
+
+
+        return extendedWorld;
+
+    }
+
+
+
+
+
 
 
     public static void runGame(int [][] world) throws InterruptedException{
@@ -58,9 +86,7 @@ public class Main{
                     }
                 }
 
-            }
-
-           
+            }   
 
 
 
