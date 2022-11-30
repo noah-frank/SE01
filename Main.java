@@ -49,7 +49,16 @@ public class Main{
         }
 
 
+        int neighbors = 0;
 
+        for(; startRow <= endRow; startRow++;){
+            for(; startColumn <= startColumn++;){
+                if(world[row][column] == 1){
+                    neighbors++;
+                } 
+            }
+
+        }
 
 
 
