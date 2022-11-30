@@ -51,7 +51,7 @@ public class Main{
                 for(int [][] state : previousStates){       
                           
                     // stop iterating if former state                               
-                    if(Arrays.equals(state, nextIteration)){
+                    if(Arrays.deepEquals(state, nextIteration)){
                         System.out.println("Former state!");
                         formerState = true;
                         break;
