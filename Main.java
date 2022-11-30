@@ -8,7 +8,7 @@ public class Main{
 
         int heatmap [][] = generateHeatmap(world);
 
-        printTwoDimArray(world);
+        printTwoDimArray(heatmap);
 
 
     }
@@ -24,8 +24,6 @@ public class Main{
             }
             System.out.println("");
         }
-
-
 
     }
 
@@ -78,7 +76,9 @@ public class Main{
         for(int i = startRow; i <= endRow; i++){
             for(int j = startColumn; j <= endColumn; j++){
                 if(world[i][j] == 1){
-                    neighbors++;
+                    if(!(i == row && j == column)){               // Do not count the cell as its own neighbor
+                        neighbors++;
+                    }
                     System.out.println("Neighbor found at row:" + i + ", column: " + j);
                 } else {
                     System.out.println("No neighbnor found at row:" + i + ", column: " + j);
