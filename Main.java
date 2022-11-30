@@ -10,10 +10,11 @@ public class Main{
 
     public int [][] generateHeatmap(int [][] world){
 
+        int [][] heatmap = {{0,0,0},{0,0,0},{0,0,0}};
 
         for(int i = 0; i < 3; i++){               // row loop
             for(int j = 0; j < 3; j++){           // column loop
-
+                heatmap[i][j] = calculateNeighbors(world, i, j);
             }
         }
 
