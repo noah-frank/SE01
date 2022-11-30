@@ -44,21 +44,24 @@ public class Main{
         }
 
         if(endRow > 2){
-            endRow = 0;
+            endRow = 2;
         }
 
         if(endColumn > 2){
-            endColumn = 0;
+            endColumn = 2;
         }
 
 
         int neighbors = 0;
 
-        for(; startRow <= endRow; startRow++){
-            for(; startColumn <= startColumn++;){
-                if(world[row][column] == 1){
+        for(int i = startRow; i <= endRow; i++){
+            for(int j = startColumn; j <= endColumn; j++){
+                if(world[i][j] == 1){
                     neighbors++;
-                } 
+                    System.out.println("Neighbor found at row:" + i + ", column: " + j);
+                } else {
+                    System.out.println("No neignor found at row:" + i + ", column: " + j);
+                }
             }
 
         }
