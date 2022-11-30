@@ -2,7 +2,7 @@ public class Main{
 
     public static void main(String args []){
 
-        int [][] world = {{0,1,0},{0,10},{0,1,0}}; 
+        int [][] world = {{0,1,0},{0,1,0},{0,1,0}}; 
 
         int test = calculateNeighbors(world, 0, 0);
 
@@ -60,7 +60,7 @@ public class Main{
                     neighbors++;
                     System.out.println("Neighbor found at row:" + i + ", column: " + j);
                 } else {
-                    System.out.println("No neignor found at row:" + i + ", column: " + j);
+                    System.out.println("No neighbnor found at row:" + i + ", column: " + j);
                 }
             }
 
