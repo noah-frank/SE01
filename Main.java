@@ -26,7 +26,7 @@ public class Main{
 
     public static int [][] generateHeatmap(int [][] world){
 
-        int [][] heatmap = new int [4][4];
+        int [][] heatmap = new int [world.length][world[0].length];
 
         for(int i = 0; i < world.length; i++){               // row loop
             for(int j = 0; j < world[0].length; j++){           // column loop
