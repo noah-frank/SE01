@@ -27,6 +27,31 @@ public class Main{
     public int calculateNeighbors(int [][] world, int row, int column){
 
 
+        int startRow = row - 1;
+        int startColumn = column - 1;
+        int endRow = row + 1;
+        int endColumn = column + 1;
+
+        if(startRow < 0){
+            startRow = 0;
+        }
+
+        if(startColumn < 0){
+            startColumn = 0;
+        }
+
+        if(endRow > 2){
+            endRow = 0;
+        }
+
+        if(endColumn > 2){
+            endColumn = 0;
+        }
+
+
+
+
+
 
 
         return null;
