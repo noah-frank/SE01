@@ -93,10 +93,11 @@ public class Main{
 
         for(int i = 0; i < world.length; i++){
             for(int j = 0; j < world[0].length; j++){
-                if(world[i][j] == 0 && calculateNeighbors(world, i, j) == 3){    // if dead cell has 3 neighbors
+                int neighbors = calculateNeighbors(world, i, j);
+                if(world[i][j] == 0 && neighbors == 3){    // if dead cell has 3 neighbors
                     nextIteration[i][j] = 1;                                     // new cell is born
                 }
-                if(world[i][j] == 1 && (calculateNeighbors(world, i, j) == 2 || calculateNeighbors(world, i, j) == 3)){ // if cell has 2 or 3 neighbors
+                if(world[i][j] == 1 && (neighbors == 2 || neighbors == 3)){ // if cell has 2 or 3 neighbors
                     nextIteration[i][j] = 1;                                                                            // cell survive
                 }
             }
