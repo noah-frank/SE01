@@ -28,7 +28,7 @@ public class Main{
 
 
 
-    public static int [][] extendWorld(int [][] world){
+    public static int [][] extendWorld(int [][] world){ // extends a world one row and colum in each direction (up,down,left,right)
 
         int [][] extendedWorld = new int [world.length+2][world[0].length+2];
 
