@@ -4,19 +4,14 @@ public class Main{
 
         int [][] world = {{0,1,0},{0,1,0},{0,1,0}}; 
 
-        int test = calculateNeighbors(world, 1, 0);
-
         int heatmap [][] = generateHeatmap(world);
 
         printTwoDimArray(heatmap);
-
 
     }
 
 
     public static void printTwoDimArray(int [][] array){
-
-        System.out.println("");
 
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
@@ -79,9 +74,9 @@ public class Main{
                     if(!(i == row && j == column)){               // Do not count the cell as its own neighbor
                         neighbors++;
                     }
-                    System.out.println("Neighbor found at row:" + i + ", column: " + j);
+                    // System.out.println("Neighbor found at row:" + i + ", column: " + j);
                 } else {
-                    System.out.println("No neighbnor found at row:" + i + ", column: " + j);
+                    // System.out.println("No neighbnor found at row:" + i + ", column: " + j);
                 }
             }
 
