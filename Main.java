@@ -26,36 +26,50 @@ public class Main{
     public static void runGame(int [][] world) throws InterruptedException{
 
         int previousIteration [][] = world;
-        int nextIteration [][] = new int [world.length][world[0].length];
+        int nextIteration [][];
 
         ArrayList<int [][]> previousStates = new ArrayList<int [][]>();
         
-        previousStates.add(world);
+        previousStates.add(world.clone());
         
 
-        for(int i = 1; i < 10; i++){
+        for(int i = 1; true; i++){
             System.out.println("\033[2J");
             nextIteration = generateNextIteration(previousIteration);
-            previousStates.add(nextIteration.clone());
             printTwoDimArray(nextIteration);
             System.out.println("Run: " + i);
+
+            
             boolean finalState = false;
+            boolean formerState = false;
+
             if(Arrays.equals(previousIteration, nextIteration)){
                 System.out.println("Final state"); 
                 finalState = true;                                                        // stop iterating if world did not change
-            }
-            boolean formerState = false;
-            for(Object o : previousStates){
-                if(Arrays.equals((int [][])o, nextIteration)){
-                    System.out.println("Former state!");
-                    formerState = true;
-                    break;
+            } else {
+
+                for(int [][] state : previousStates){       
+                          
+                    // stop iterating if former state                               
+                    if(Arrays.equals(state, nextIteration)){
+                        System.out.println("Former state!");
+                        formerState = true;
+                        break;
+                    }
                 }
+
             }
+
+           
+
+
 
             if(formerState || finalState){
                 break;
             }
+
+            previousStates.add(nextIteration.clone());
+
 
             previousIteration = nextIteration.clone();
             TimeUnit.SECONDS.sleep(1);
