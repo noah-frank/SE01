@@ -4,9 +4,11 @@ public class Main{
 
         int [][] world = {{0,1,0},{0,1,0},{0,1,0}}; 
 
-        int test = calculateNeighbors(world, 0, 0);
+        int test = calculateNeighbors(world, 1, 0);
 
-        System.out.println(test);
+        int heatmap [][] = generateHeatmap(world);
+
+        
 
     }
 
@@ -22,7 +24,7 @@ public class Main{
         }
 
 
-        return null;
+        return heatmap;
 
     }
 
