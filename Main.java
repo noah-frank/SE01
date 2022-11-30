@@ -2,7 +2,7 @@ public class Main{
 
     public static void main(String args []){
 
-        int [][] world = {{0,1,0},{0,1,0},{0,1,0}}; 
+        int [][] world = {{0,0,0,0},{0,1,0,0},{0,1,1,1},{0,0,0,0}}; 
 
         int heatmap [][] = generateHeatmap(world);
 
@@ -26,7 +26,7 @@ public class Main{
 
     public static int [][] generateHeatmap(int [][] world){
 
-        int [][] heatmap = {{0,0,0},{0,0,0},{0,0,0}};
+        int [][] heatmap = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 
         for(int i = 0; i < world.length; i++){               // row loop
             for(int j = 0; j < world[0].length; j++){           // column loop
@@ -56,12 +56,12 @@ public class Main{
             startColumn = 0;
         }
 
-        if(endRow > 2){
-            endRow = 2;
+        if(endRow > world.length-1){
+            endRow = world.length-1;
         }
 
-        if(endColumn > 2){
-            endColumn = 2;
+        if(endColumn > world[0].length-1){
+            endColumn = world[0].length-1;
         }
 
 
